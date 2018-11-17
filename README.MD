@@ -15,6 +15,6 @@ The Kata says you should write a function to convert from normal numbers to Roma
      7 --> VII
 etc.
 
-For a full description of how it works, take a look at [this useful reference website](http://www.novaroma.org/via_romana/numbers.html) : which includes an implementation of the Kata in javascript.
+For a full description of how it works, take a look at [this useful reference website](http://www.tuomas.salste.net/doc/roman/numeri-romani-1-3000.html)
 
 There is no need to be able to convert numbers larger than about 3000. (The Romans themselves didn’t tend to go any higher)

@@ -1,10 +1,10 @@
-package my.kata.romannumerals;
+package my.kata.number.roman;
 
 import static org.assertj.core.api.Assertions.fail;
 
 import org.junit.Test;
 
-public class RomanNumeralsTest {
+public class RomanNumberUnitTest {
 
 	@Test
 	public void shouldDoSth() {
