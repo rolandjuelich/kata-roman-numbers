@@ -21,6 +21,7 @@ public class RomanNumber {
 		ciphers.put(50, "L");
 		ciphers.put(100, "C");
 		ciphers.put(500, "D");
+		ciphers.put(1000, "M");
 
 		List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
 		Collections.reverse(numbers);
@@ -99,109 +100,19 @@ public class RomanNumber {
 			return convert(500) + convert(number - 500);
 		}
 
-		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+		if (number == 900) {
+			return convert(100) + convert(1000);
+		}
+
+		if (number == 1000) {
+			return  ciphers.get(1000);
+		}
+		if(number<1000) {
+			return convert(900) + convert(number-900);
+		}
 		
-		map.put(900, "CM");
-		map.put(901, "CMI");
-		map.put(902, "CMII");
-		map.put(903, "CMIII");
-		map.put(904, "CMIV");
-		map.put(905, "CMV");
-		map.put(906, "CMVI");
-		map.put(907, "CMVII");
-		map.put(908, "CMVIII");
-		map.put(909, "CMIX");
-		map.put(910, "CMX");
-		map.put(911, "CMXI");
-		map.put(912, "CMXII");
-		map.put(913, "CMXIII");
-		map.put(914, "CMXIV");
-		map.put(915, "CMXV");
-		map.put(916, "CMXVI");
-		map.put(917, "CMXVII");
-		map.put(918, "CMXVIII");
-		map.put(919, "CMXIX");
-		map.put(920, "CMXX");
-		map.put(921, "CMXXI");
-		map.put(922, "CMXXII");
-		map.put(923, "CMXXIII");
-		map.put(924, "CMXXIV");
-		map.put(925, "CMXXV");
-		map.put(926, "CMXXVI");
-		map.put(927, "CMXXVII");
-		map.put(928, "CMXXVIII");
-		map.put(929, "CMXXIX");
-		map.put(930, "CMXXX");
-		map.put(931, "CMXXXI");
-		map.put(932, "CMXXXII");
-		map.put(933, "CMXXXIII");
-		map.put(934, "CMXXXIV");
-		map.put(935, "CMXXXV");
-		map.put(936, "CMXXXVI");
-		map.put(937, "CMXXXVII");
-		map.put(938, "CMXXXVIII");
-		map.put(939, "CMXXXIX");
-		map.put(940, "CMXL");
-		map.put(941, "CMXLI");
-		map.put(942, "CMXLII");
-		map.put(943, "CMXLIII");
-		map.put(944, "CMXLIV");
-		map.put(945, "CMXLV");
-		map.put(946, "CMXLVI");
-		map.put(947, "CMXLVII");
-		map.put(948, "CMXLVIII");
-		map.put(949, "CMXLIX");
-		map.put(950, "CML");
-		map.put(951, "CMLI");
-		map.put(952, "CMLII");
-		map.put(953, "CMLIII");
-		map.put(954, "CMLIV");
-		map.put(955, "CMLV");
-		map.put(956, "CMLVI");
-		map.put(957, "CMLVII");
-		map.put(958, "CMLVIII");
-		map.put(959, "CMLIX");
-		map.put(960, "CMLX");
-		map.put(961, "CMLXI");
-		map.put(962, "CMLXII");
-		map.put(963, "CMLXIII");
-		map.put(964, "CMLXIV");
-		map.put(965, "CMLXV");
-		map.put(966, "CMLXVI");
-		map.put(967, "CMLXVII");
-		map.put(968, "CMLXVIII");
-		map.put(969, "CMLXIX");
-		map.put(970, "CMLXX");
-		map.put(971, "CMLXXI");
-		map.put(972, "CMLXXII");
-		map.put(973, "CMLXXIII");
-		map.put(974, "CMLXXIV");
-		map.put(975, "CMLXXV");
-		map.put(976, "CMLXXVI");
-		map.put(977, "CMLXXVII");
-		map.put(978, "CMLXXVIII");
-		map.put(979, "CMLXXIX");
-		map.put(980, "CMLXXX");
-		map.put(981, "CMLXXXI");
-		map.put(982, "CMLXXXII");
-		map.put(983, "CMLXXXIII");
-		map.put(984, "CMLXXXIV");
-		map.put(985, "CMLXXXV");
-		map.put(986, "CMLXXXVI");
-		map.put(987, "CMLXXXVII");
-		map.put(988, "CMLXXXVIII");
-		map.put(989, "CMLXXXIX");
-		map.put(990, "CMXC");
-		map.put(991, "CMXCI");
-		map.put(992, "CMXCII");
-		map.put(993, "CMXCIII");
-		map.put(994, "CMXCIV");
-		map.put(995, "CMXCV");
-		map.put(996, "CMXCVI");
-		map.put(997, "CMXCVII");
-		map.put(998, "CMXCVIII");
-		map.put(999, "CMXCIX");
-		map.put(1000, "M");
+		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
+
 		map.put(1001, "MI");
 		map.put(1002, "MII");
 		map.put(1003, "MIII");
