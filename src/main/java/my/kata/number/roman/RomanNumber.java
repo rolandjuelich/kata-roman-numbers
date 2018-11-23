@@ -6,16 +6,13 @@ public class RomanNumber {
 
 	public static String convert(int number) {
 
-		if (number <= 1) {
-			if (number < 1) {
-				return null;
-			}
-			return ciphers().get(1);
+		if (number < 1) {
+			return null;
 		}
 
-		for (int i = 10; i <= 1000; i *= 10) {
-			int n = i / 2;
-			int m = i / 10;
+		for (int i = 1; i <= 1000; i *= 10) {
+			int n = i == 1 ? 0 : i / 2;
+			int m = i == 1 ? 1 : i / 10;
 
 			if (number < n - m) {
 				return convert(number, m);
