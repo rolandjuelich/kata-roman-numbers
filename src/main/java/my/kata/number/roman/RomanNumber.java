@@ -1,41 +1,41 @@
 package my.kata.number.roman;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.TreeMap;
+
+import com.beust.jcommander.internal.Lists;
 
 public class RomanNumber {
 
 	public static String convert(int number) {
 
+		if (number < 1) {
+			return null;
+		}
+
 		if (number < 20) {
-			if (number >= 10 - 1) {
-				if (number == 10 - 1) {
-					return convert(1) + convert(10);
+
+			TreeMap<Integer, String> ciphers = new TreeMap<Integer, String>();
+			ciphers.put(1, "I");
+			ciphers.put(5, "V");
+			ciphers.put(10, "X");
+
+			List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
+			Collections.reverse(numbers);
+
+			for (Integer arabic : numbers) {
+				if (number >= arabic - 1) {
+					if (number < arabic) {
+						return convert(1) + convert(arabic);
+					}
+					if (number == arabic) {
+						return ciphers.get(arabic);
+					}
+					return convert(arabic) + convert(number - arabic);
 				}
-				if (number == 10) {
-					return "X";
-				}
-				return convert(10) + convert(number - 10);
 			}
 
-			if (number >= 5 - 1) {
-				if (number == 5 - 1) {
-					return convert(1) + convert(5);
-				}
-				if (number == 5) {
-					return "V";
-				}
-				return convert(5) + convert(number - 5);
-			}
-
-			if (number >= 1 - 1) {
-				if (number == 1 - 1) {
-					return null;
-				}
-				if (number == 1) {
-					return "I";
-				}
-				return convert(1) + convert(number - 1);
-			}
 		}
 
 		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
