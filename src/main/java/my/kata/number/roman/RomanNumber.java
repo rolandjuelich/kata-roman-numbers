@@ -21,31 +21,29 @@ public class RomanNumber {
 				return convert(m) + convert(number - m);
 			}
 			if (number <= n) {
-				if (number == n - m) {
-					return convert(m) + convert(n);
-				}
-				if (number == n) {
-					return ciphers().get(n);
-				}
-				return convert(n - m) + convert(number - (n - m));
+				return convert(number, n, m);
 			}
 			
 			if (number < i - m) {
 				return convert(n) + convert(number - n);
 			}
 			if (number <= i) {
-				if (number == i - m) {
-					return convert(m) + convert(i);
-				}
-				if (number == i) {
-					return ciphers().get(i);
-				}
-				return convert(i - m) + convert(number - (i - m));
+				return convert(number, i, m);
 			}
 			
 		}
 
 		return convert(1000) + convert(number - 1000);
+	}
+
+	private static String convert(int number, int i, int m) {
+		if (number == i - m) {
+			return convert(m) + convert(i);
+		}
+		if (number == i) {
+			return ciphers().get(i);
+		}
+		return convert(i - m) + convert(number - (i - m));
 	}
 
 	private static TreeMap<Integer, String> ciphers() {
