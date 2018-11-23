@@ -20,6 +20,7 @@ public class RomanNumber {
 		ciphers.put(10, "X");
 		ciphers.put(50, "L");
 		ciphers.put(100, "C");
+		ciphers.put(500, "D");
 
 		List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
 		Collections.reverse(numbers);
@@ -69,120 +70,32 @@ public class RomanNumber {
 			}
 		}
 
-		if (number == 90) {
-			return convert(10) + convert(100);
-		}
-		if (number < 100) {
+		if (number <= 100) {
+			if (number == 90) {
+				return convert(10) + convert(100);
+			}
+			if (number == 100) {
+				return ciphers.get(100);
+			}
 			return convert(90) + convert(number - 90);
 		}
-		if (number == 100) {
-			return ciphers.get(100);
-		}
-		if (number < 400) {
+
+		if (number <= 400) {
+			if (number == 400) {
+				return convert(100) + convert(500);
+			}
 			return convert(100) + convert(number - 100);
 		}
 
+		if (number < 500) {
+			return convert(400) + convert(number - 400);
+		}
+
+		if (number == 500) {
+			return ciphers.get(500);
+		}
+
 		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
-		map.put(400, "CD");
-		map.put(401, "CDI");
-		map.put(402, "CDII");
-		map.put(403, "CDIII");
-		map.put(404, "CDIV");
-		map.put(405, "CDV");
-		map.put(406, "CDVI");
-		map.put(407, "CDVII");
-		map.put(408, "CDVIII");
-		map.put(409, "CDIX");
-		map.put(410, "CDX");
-		map.put(411, "CDXI");
-		map.put(412, "CDXII");
-		map.put(413, "CDXIII");
-		map.put(414, "CDXIV");
-		map.put(415, "CDXV");
-		map.put(416, "CDXVI");
-		map.put(417, "CDXVII");
-		map.put(418, "CDXVIII");
-		map.put(419, "CDXIX");
-		map.put(420, "CDXX");
-		map.put(421, "CDXXI");
-		map.put(422, "CDXXII");
-		map.put(423, "CDXXIII");
-		map.put(424, "CDXXIV");
-		map.put(425, "CDXXV");
-		map.put(426, "CDXXVI");
-		map.put(427, "CDXXVII");
-		map.put(428, "CDXXVIII");
-		map.put(429, "CDXXIX");
-		map.put(430, "CDXXX");
-		map.put(431, "CDXXXI");
-		map.put(432, "CDXXXII");
-		map.put(433, "CDXXXIII");
-		map.put(434, "CDXXXIV");
-		map.put(435, "CDXXXV");
-		map.put(436, "CDXXXVI");
-		map.put(437, "CDXXXVII");
-		map.put(438, "CDXXXVIII");
-		map.put(439, "CDXXXIX");
-		map.put(440, "CDXL");
-		map.put(441, "CDXLI");
-		map.put(442, "CDXLII");
-		map.put(443, "CDXLIII");
-		map.put(444, "CDXLIV");
-		map.put(445, "CDXLV");
-		map.put(446, "CDXLVI");
-		map.put(447, "CDXLVII");
-		map.put(448, "CDXLVIII");
-		map.put(449, "CDXLIX");
-		map.put(450, "CDL");
-		map.put(451, "CDLI");
-		map.put(452, "CDLII");
-		map.put(453, "CDLIII");
-		map.put(454, "CDLIV");
-		map.put(455, "CDLV");
-		map.put(456, "CDLVI");
-		map.put(457, "CDLVII");
-		map.put(458, "CDLVIII");
-		map.put(459, "CDLIX");
-		map.put(460, "CDLX");
-		map.put(461, "CDLXI");
-		map.put(462, "CDLXII");
-		map.put(463, "CDLXIII");
-		map.put(464, "CDLXIV");
-		map.put(465, "CDLXV");
-		map.put(466, "CDLXVI");
-		map.put(467, "CDLXVII");
-		map.put(468, "CDLXVIII");
-		map.put(469, "CDLXIX");
-		map.put(470, "CDLXX");
-		map.put(471, "CDLXXI");
-		map.put(472, "CDLXXII");
-		map.put(473, "CDLXXIII");
-		map.put(474, "CDLXXIV");
-		map.put(475, "CDLXXV");
-		map.put(476, "CDLXXVI");
-		map.put(477, "CDLXXVII");
-		map.put(478, "CDLXXVIII");
-		map.put(479, "CDLXXIX");
-		map.put(480, "CDLXXX");
-		map.put(481, "CDLXXXI");
-		map.put(482, "CDLXXXII");
-		map.put(483, "CDLXXXIII");
-		map.put(484, "CDLXXXIV");
-		map.put(485, "CDLXXXV");
-		map.put(486, "CDLXXXVI");
-		map.put(487, "CDLXXXVII");
-		map.put(488, "CDLXXXVIII");
-		map.put(489, "CDLXXXIX");
-		map.put(490, "CDXC");
-		map.put(491, "CDXCI");
-		map.put(492, "CDXCII");
-		map.put(493, "CDXCIII");
-		map.put(494, "CDXCIV");
-		map.put(495, "CDXCV");
-		map.put(496, "CDXCVI");
-		map.put(497, "CDXCVII");
-		map.put(498, "CDXCVIII");
-		map.put(499, "CDXCIX");
 		map.put(500, "D");
 		map.put(501, "DI");
 		map.put(502, "DII");
