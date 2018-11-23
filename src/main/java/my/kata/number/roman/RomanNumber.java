@@ -1,10 +1,6 @@
 package my.kata.number.roman;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.TreeMap;
-
-import com.beust.jcommander.internal.Lists;
 
 public class RomanNumber {
 
@@ -18,9 +14,6 @@ public class RomanNumber {
 		ciphers.put(100, "C");
 		ciphers.put(500, "D");
 		ciphers.put(1000, "M");
-
-		List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
-		Collections.reverse(numbers);
 
 		if (number <= 1) {
 			if (number < 1) {
