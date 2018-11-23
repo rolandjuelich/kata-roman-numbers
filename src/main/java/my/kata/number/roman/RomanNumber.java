@@ -11,8 +11,8 @@ public class RomanNumber {
 		}
 
 		for (int i = 1; i <= 1000; i *= 10) {
-			int n = i == 1 ? 0 : i / 2;
-			int m = i == 1 ? 1 : i / 10;
+			int n = i > 1 ? i / 2 : 0;
+			int m = i > 1 ? i / 10 : 1;
 
 			if (number < n - m) {
 				return convert(number, m);
