@@ -32,11 +32,7 @@ public class RomanNumber {
 
 		}
 
-		return convert(1000) + convert(number - 1000);
-	}
-
-	private static String convert(int number, int m) {
-		return convert(m) + convert(number - m);
+		return convert(number, 1000);
 	}
 
 	private static String convert(int number, int i, int m) {
@@ -47,6 +43,10 @@ public class RomanNumber {
 			return ciphers().get(i);
 		}
 		return convert(number, (i - m));
+	}
+
+	private static String convert(int number, int m) {
+		return convert(m) + convert(number - m);
 	}
 
 	private static TreeMap<Integer, String> ciphers() {
