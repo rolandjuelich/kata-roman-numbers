@@ -14,16 +14,15 @@ public class RomanNumber {
 			return null;
 		}
 
+		TreeMap<Integer, String> ciphers = new TreeMap<Integer, String>();
+		ciphers.put(1, "I");
+		ciphers.put(5, "V");
+		ciphers.put(10, "X");
+		
+		List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
+		Collections.reverse(numbers);
+
 		if (number < 20) {
-
-			TreeMap<Integer, String> ciphers = new TreeMap<Integer, String>();
-			ciphers.put(1, "I");
-			ciphers.put(5, "V");
-			ciphers.put(10, "X");
-
-			List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
-			Collections.reverse(numbers);
-
 			for (Integer arabic : numbers) {
 				if (number >= arabic - 1) {
 					if (number < arabic) {
@@ -35,30 +34,23 @@ public class RomanNumber {
 					return convert(arabic) + convert(number - arabic);
 				}
 			}
+		}
 
+		if (number < 40) {
+			for (Integer arabic : numbers) {
+				if (number >= arabic - 10) {
+					if (number < arabic) {
+						return convert(10) + convert(arabic);
+					}
+					if (number == arabic) {
+						return ciphers.get(arabic);
+					}
+					return convert(arabic) + convert(number - arabic);
+				}
+			}
 		}
 
 		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
-		map.put(20, "XX");
-		map.put(21, "XXI");
-		map.put(22, "XXII");
-		map.put(23, "XXIII");
-		map.put(24, "XXIV");
-		map.put(25, "XXV");
-		map.put(26, "XXVI");
-		map.put(27, "XXVII");
-		map.put(28, "XXVIII");
-		map.put(29, "XXIX");
-		map.put(30, "XXX");
-		map.put(31, "XXXI");
-		map.put(32, "XXXII");
-		map.put(33, "XXXIII");
-		map.put(34, "XXXIV");
-		map.put(35, "XXXV");
-		map.put(36, "XXXVI");
-		map.put(37, "XXXVII");
-		map.put(38, "XXXVIII");
-		map.put(39, "XXXIX");
 		map.put(40, "XL");
 		map.put(41, "XLI");
 		map.put(42, "XLII");
