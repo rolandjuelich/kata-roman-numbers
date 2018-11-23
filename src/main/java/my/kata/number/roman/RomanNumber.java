@@ -5,26 +5,40 @@ import java.util.TreeMap;
 public class RomanNumber {
 
 	public static String convert(int number) {
+
+		if (number < 1) {
+			return null;
+		}
+		if (number == 1) {
+			return "I";
+		}
+		if (number == 5) {
+			return "V";
+		}
+		if (number == 10) {
+			return "X";
+		}
+
+		if (number <= 3) {
+			return convert(1) + convert(number - 1);
+		}
+		if (number == 4) {
+			return convert(1) + convert(5);
+		}
+		if (number == 5) {
+			return convert(5);
+		}
+		if (number <= 8) {
+			return convert(5) + convert(number - 5);
+		}
+		if (number == 9) {
+			return convert(1) + convert(10);
+		}
+		if (number < 20) {
+			return convert(10) + convert(number - 10);
+		}
+
 		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
-		map.put(1, "I");
-		map.put(2, "II");
-		map.put(3, "III");
-		map.put(4, "IV");
-		map.put(5, "V");
-		map.put(6, "VI");
-		map.put(7, "VII");
-		map.put(8, "VIII");
-		map.put(9, "IX");
-		map.put(10, "X");
-		map.put(11, "XI");
-		map.put(12, "XII");
-		map.put(13, "XIII");
-		map.put(14, "XIV");
-		map.put(15, "XV");
-		map.put(16, "XVI");
-		map.put(17, "XVII");
-		map.put(18, "XVIII");
-		map.put(19, "XIX");
 		map.put(20, "XX");
 		map.put(21, "XXI");
 		map.put(22, "XXII");
