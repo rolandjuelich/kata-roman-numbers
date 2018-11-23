@@ -18,22 +18,25 @@ public class RomanNumber {
 			int m = i / 10;
 
 			if (number < n - m) {
-				return convert(m) + convert(number - m);
+				return convert(number, m);
 			}
 			if (number <= n) {
 				return convert(number, n, m);
 			}
-			
 			if (number < i - m) {
-				return convert(n) + convert(number - n);
+				return convert(number, n);
 			}
 			if (number <= i) {
 				return convert(number, i, m);
 			}
-			
+
 		}
 
 		return convert(1000) + convert(number - 1000);
+	}
+
+	private static String convert(int number, int m) {
+		return convert(m) + convert(number - m);
 	}
 
 	private static String convert(int number, int i, int m) {
