@@ -17,10 +17,10 @@ public class RomanNumber {
 			int n = i / 2;
 			int m = i / 10;
 
+			if (number < n - m) {
+				return convert(m) + convert(number - m);
+			}
 			if (number <= n) {
-				if (number < n - m) {
-					return convert(m) + convert(number - m);
-				}
 				if (number == n - m) {
 					return convert(m) + convert(n);
 				}
@@ -29,10 +29,11 @@ public class RomanNumber {
 				}
 				return convert(n - m) + convert(number - (n - m));
 			}
+			
+			if (number < i - m) {
+				return convert(n) + convert(number - n);
+			}
 			if (number <= i) {
-				if (number < i - m) {
-					return convert(n) + convert(number - n);
-				}
 				if (number == i - m) {
 					return convert(m) + convert(i);
 				}
@@ -41,6 +42,7 @@ public class RomanNumber {
 				}
 				return convert(i - m) + convert(number - (i - m));
 			}
+			
 		}
 
 		return convert(1000) + convert(number - 1000);
