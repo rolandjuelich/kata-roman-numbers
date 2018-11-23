@@ -23,29 +23,32 @@ public class RomanNumber {
 		}
 
 		for (int i = 10; i <= 1000; i *= 10) {
+			int n = i / 2;
+			int m = i / 10;
+
+			if (number <= n) {
+				if (number < n - m) {
+					return convert(m) + convert(number - m);
+				}
+				if (number == n - m) {
+					return convert(m) + convert(n);
+				}
+				if (number == n) {
+					return ciphers.get(n);
+				}
+				return convert(n - m) + convert(number - (n - m));
+			}
 			if (number <= i) {
-				if (number <= (i / 2)) {
-					if (number < (i / 2) - (i / 10)) {
-						return convert((i / 10)) + convert(number - (i / 10));
-					}
-					if (number == (i / 2) - (i / 10)) {
-						return convert((i / 10)) + convert((i / 2));
-					}
-					if (number == (i / 2)) {
-						return ciphers.get((i / 2));
-					}
-					return convert((i / 2) - (i / 10)) + convert(number - ((i / 2) - (i / 10)));
+				if (number < i - m) {
+					return convert(n) + convert(number - n);
 				}
-				if (number < i - (i / 10)) {
-					return convert((i / 2)) + convert(number - (i / 2));
-				}
-				if (number == i - (i / 10)) {
-					return convert((i / 10)) + convert(i);
+				if (number == i - m) {
+					return convert(m) + convert(i);
 				}
 				if (number == i) {
 					return ciphers.get(i);
 				}
-				return convert(i - (i / 10)) + convert(number - (i - (i / 10)));
+				return convert(i - m) + convert(number - (i - m));
 			}
 		}
 
