@@ -46,7 +46,7 @@ public class RomanNumber {
 		if (number == i) {
 			return ciphers().get(i);
 		}
-		return convert(i - m) + convert(number - (i - m));
+		return convert(number, (i - m));
 	}
 
 	private static TreeMap<Integer, String> ciphers() {
