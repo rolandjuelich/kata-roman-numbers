@@ -18,7 +18,8 @@ public class RomanNumber {
 		ciphers.put(1, "I");
 		ciphers.put(5, "V");
 		ciphers.put(10, "X");
-		
+		ciphers.put(50, "L");
+
 		List<Integer> numbers = Lists.newArrayList(ciphers.keySet());
 		Collections.reverse(numbers);
 
@@ -50,57 +51,21 @@ public class RomanNumber {
 			}
 		}
 
+		if (number == 40) {
+			return convert(10) + convert(50);
+		}
+		if (number < 50) {
+			return convert(40) + convert(number - 40);
+		}
+		if (number == 50) {
+			return ciphers.get(50);
+		}
+		if(number < 90) {
+			return convert(50) + convert(number -50);
+		}
+		
+
 		TreeMap<Integer, String> map = new TreeMap<Integer, String>();
-		map.put(40, "XL");
-		map.put(41, "XLI");
-		map.put(42, "XLII");
-		map.put(43, "XLIII");
-		map.put(44, "XLIV");
-		map.put(45, "XLV");
-		map.put(46, "XLVI");
-		map.put(47, "XLVII");
-		map.put(48, "XLVIII");
-		map.put(49, "XLIX");
-		map.put(50, "L");
-		map.put(51, "LI");
-		map.put(52, "LII");
-		map.put(53, "LIII");
-		map.put(54, "LIV");
-		map.put(55, "LV");
-		map.put(56, "LVI");
-		map.put(57, "LVII");
-		map.put(58, "LVIII");
-		map.put(59, "LIX");
-		map.put(60, "LX");
-		map.put(61, "LXI");
-		map.put(62, "LXII");
-		map.put(63, "LXIII");
-		map.put(64, "LXIV");
-		map.put(65, "LXV");
-		map.put(66, "LXVI");
-		map.put(67, "LXVII");
-		map.put(68, "LXVIII");
-		map.put(69, "LXIX");
-		map.put(70, "LXX");
-		map.put(71, "LXXI");
-		map.put(72, "LXXII");
-		map.put(73, "LXXIII");
-		map.put(74, "LXXIV");
-		map.put(75, "LXXV");
-		map.put(76, "LXXVI");
-		map.put(77, "LXXVII");
-		map.put(78, "LXXVIII");
-		map.put(79, "LXXIX");
-		map.put(80, "LXXX");
-		map.put(81, "LXXXI");
-		map.put(82, "LXXXII");
-		map.put(83, "LXXXIII");
-		map.put(84, "LXXXIV");
-		map.put(85, "LXXXV");
-		map.put(86, "LXXXVI");
-		map.put(87, "LXXXVII");
-		map.put(88, "LXXXVIII");
-		map.put(89, "LXXXIX");
 		map.put(90, "XC");
 		map.put(91, "XCI");
 		map.put(92, "XCII");
